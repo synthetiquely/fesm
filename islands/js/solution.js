@@ -14,19 +14,27 @@
             return 0;
         }
 
-        let n = map.length;
-        let m = map[0].length;
+        let mapCopy = copy(map);
+        let n = mapCopy.length;
+        let m = mapCopy[0].length;
         let count = 0;
 
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < m; j++) {
-                if (map[i][j] === 1) {
+                if (mapCopy[i][j] === 1) {
                     count++;
-                    dfs(map, i, j);
+                    dfs(mapCopy, i, j);
                 }
             }
         }
 
+        /**
+         * Функция поиска в глубину
+         *
+         * @param {number[][]} map карта островов представленная двумерной матрицей чисел
+         * @param {number} i текущий номер строки
+         * @param {number} j текущий номер столбца
+         */
         function dfs(map, i, j) {
             let n = map.length;
             let m = map[0].length;
@@ -40,6 +48,23 @@
             dfs(map, i + 1, j);
             dfs(map, i, j - 1);
             dfs(map, i, j + 1);
+        }
+
+        /**
+         * Функция копирования массива по значению, для того, 
+         * чтобы не мутировать исходный массив
+         * 
+         * @param {number[][]} o массив, который нужно скопировать по значению
+         * @returns {number} output скопированный массив
+         */
+        function copy(o) {
+            var output, v, key;
+            output = [];
+            for (key in o) {
+                v = o[key];
+                output[key] = (typeof v === "object") ? copy(v) : v;
+            }
+            return output;
         }
 
         return count;
