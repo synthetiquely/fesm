@@ -1,15 +1,15 @@
-* {
+body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px; }
 
 h4 {
-  font-size: 1.1rem; }
-
-h2 {
   font-size: 1.3rem; }
 
+h2 {
+  font-size: 2rem; }
+
 p {
-  font-size: 0.7rem;
+  font-size: 1rem;
   line-height: 28px; }
 
 a {
@@ -62,5 +62,9 @@ footer {
     flex: 0 0 calc(30% - 40px); }
   .expectations .grid .employment {
     flex: 0 0 calc(70% - 40px); }
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column; } }
 
 /*# sourceMappingURL=styles.css.map */
