@@ -6,23 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Porfolio | Anatoly Belobrovik</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
   <header class="header">
-    <div class="photo" />
+    <div class="photo"></div>
     <div class="intro">
-      <h4>Фронт-енд разработчик</h4>
-      <h2>Анатолий Белобровик</h2>
+      <div>
+        <h4>Фронт-енд разработчик</h4>
+        <h2>Анатолий Белобровик</h2>
+      </div>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio repudiandae quod minima iusto tempore nemo, perspiciatis numquam
-        quo ullam ad architecto dignissimos. Itaque, saepe sunt repellendus voluptate nesciunt qui enim ipsa repudiandae
-        illum ut adipisci quia consectetur dolore dignissimos impedit nobis sapiente quisquam autem quam quibusdam? Non illum
-        iste voluptatibus consequatur ducimus qui, voluptas cumque hic? Eos voluptates sapiente praesentium ratione? Ducimus
-        placeat vero reiciendis excepturi, similique non veniam rem temporibus deleniti molestias quae explicabo porro provident
-        perspiciatis illum amet, voluptates, natus nobis illo commodi ipsa obcaecati vel aperiam exercitationem? Eos, eligendi.
-        Reiciendis earum pariatur recusandae exercitationem ex porro facilis.
+        Рекламный макет подсознательно экономит JavaScript. Несмотря на сложности, ребрендинг Sass, LESS, PostCSS. Медиавес, конечно,
+        стабилизирует экспериментальный традиционный Gulp, Webpack. Построение бренда специфицирует Python жизненный цикл
+        продукции. К тому же каждая сфера рынка выражена наиболее полно. Медиабизнес искажает комплексный системный анализ
       </p>
     </div>
   </header>
@@ -100,10 +99,13 @@
         </ul>
       </div>
       <form className="contact-form">
-        <input type="text" name="" id="">
-        <input type="email" name="" id="">
-        <textarea name="" id="" rows="4"></textarea>
-        <input type="file" name="" id="">
+        <input type="text" name="name" id="name" value="" placeholder="Имя">
+        <input type="email" name="email" id="email" value="" placeholder="Почтовый ящик">
+        <textarea name="message" id="message" rows="4" placeholder="Сообщение"></textarea>
+        <div>
+          <label for="file">Прикрепить ТЗ</label>
+          <input type="file" name="file" id="file">
+        </div>
         <button type="submit">Отправить</button>
       </form>
     </div>

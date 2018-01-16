@@ -1,0 +1,39 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+p {
+  line-height: 28px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #082841;
+
+  .photo {
+    min-width: 552px;
+    min-height: 672px;
+    padding: 0 100px;
+    background: url('../assets/me.jpg') no-repeat center;
+    background-size: cover;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    color: #fff;
+  }
+}
