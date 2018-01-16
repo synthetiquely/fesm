@@ -1,3 +1,5 @@
+// GENERAL STYLES
+
 * {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -14,6 +16,14 @@ h2 {
 p {
   line-height: 28px;
 }
+
+main,
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+// HEADER
 
 .header {
   display: flex;
@@ -32,8 +42,43 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 40px;
     color: #fff;
+  }
+}
+
+// SECTION EXPECTATIONS
+
+.expectations {
+  p {
+    font-size: 16px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      flex: 0 0 calc(50% - 40px);
+      margin: 10px;
+      padding: 5px 10px;
+      background: linear-gradient(to bottom right, #e6f0f0, #e9f0e6);
+    }
+
+    .freedom {
+      flex: 0 0 calc(60% - 40px);
+    }
+
+    .equality {
+      flex: 0 0 calc(40% - 40px);
+    }
+
+    .brotherhood {
+      flex: 0 0 calc(30% - 40px);
+    }
+
+    .employment {
+      flex: 0 0 calc(70% - 40px);
+    }
   }
 }

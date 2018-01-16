@@ -11,6 +11,11 @@ h2 {
 p {
   line-height: 28px; }
 
+main,
+footer {
+  max-width: 1000px;
+  margin: 0 auto; }
+
 .header {
   display: flex;
   flex-direction: row;
@@ -25,8 +30,26 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 40px;
     color: #fff; }
+
+.expectations p {
+  font-size: 16px; }
+.expectations .grid {
+  display: flex;
+  flex-wrap: wrap; }
+  .expectations .grid div {
+    flex: 0 0 calc(50% - 40px);
+    margin: 10px;
+    padding: 5px 10px;
+    background: linear-gradient(to bottom right, #e6f0f0, #e9f0e6); }
+  .expectations .grid .freedom {
+    flex: 0 0 calc(60% - 40px); }
+  .expectations .grid .equality {
+    flex: 0 0 calc(40% - 40px); }
+  .expectations .grid .brotherhood {
+    flex: 0 0 calc(30% - 40px); }
+  .expectations .grid .employment {
+    flex: 0 0 calc(70% - 40px); }
 
 /*# sourceMappingURL=styles.css.map */
