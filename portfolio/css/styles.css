@@ -11,6 +11,13 @@ h2 {
 p {
   line-height: 28px; }
 
+a {
+  color: #dd3e18;
+  font-size: 16px;
+  text-decoration: none; }
+  a:hover {
+    color: #982b11; }
+
 main,
 footer {
   max-width: 1000px;
