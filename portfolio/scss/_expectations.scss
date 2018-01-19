@@ -5,10 +5,10 @@
 
   .grid {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 
     div {
-      flex: 0 0 calc(50% - 40px);
       margin: 10px;
       padding: 5px 10px;
       background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);

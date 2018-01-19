@@ -19,8 +19,7 @@ a {
   a:hover {
     color: #982b11; }
 
-main,
-footer {
+main {
   max-width: 1000px;
   margin: 0 auto; }
 
@@ -51,9 +50,9 @@ footer {
   font-size: 16px; }
 .expectations .grid {
   display: flex;
+  align-items: center;
   flex-wrap: wrap; }
   .expectations .grid div {
-    flex: 0 0 calc(50% - 40px);
     margin: 10px;
     padding: 5px 10px;
     background: linear-gradient(to bottom right, #e6f0f0, #e9f0e6); }
@@ -65,5 +64,85 @@ footer {
     flex: 0 0 calc(30% - 40px); }
   .expectations .grid .employment {
     flex: 0 0 calc(70% - 40px); }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  background: linear-gradient(to bottom right, #e6f0f0, #e9f0e6); }
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin: 0 auto; }
+  .footer .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .footer .links li {
+    padding: 5px 0; }
+  .footer .links li > i {
+    max-width: 18px;
+    max-height: auto;
+    opacity: 0.2; }
+  .footer .links li a {
+    margin-left: 10px; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-left: 30px; }
+  .contact-form button,
+  .contact-form input,
+  .contact-form textarea {
+    border: none;
+    border-radius: 4px;
+    min-width: 350px; }
+  .contact-form input,
+  .contact-form textarea {
+    margin-bottom: 15px;
+    padding: 15px 10px; }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline-color: #dd3e18; }
+  .contact-form button {
+    padding: 10px 0;
+    background-color: #dd3e18;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer; }
+    .contact-form button:hover {
+      background-color: #982b11; }
+    .contact-form button:focus {
+      outline-color: #dd3e18; }
+  .contact-form .file {
+    margin-bottom: 15px; }
+  .contact-form .file-label {
+    color: #dd3e18;
+    font-weight: 600;
+    cursor: pointer; }
+    .contact-form .file-label:hover {
+      color: #982b11; }
+  .contact-form .file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1; }
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    margin: 15px 20px 0; }
+  .footer .contact-form {
+    margin-top: 15px;
+    margin-left: 0; }
+    .footer .contact-form button,
+    .footer .contact-form input,
+    .footer .contact-form textarea {
+      min-width: 0; } }
 
 /*# sourceMappingURL=styles.css.map */
