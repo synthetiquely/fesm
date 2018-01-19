@@ -44,6 +44,9 @@ footer {
     padding: 0 20px;
     color: #fff; }
 
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column; } }
 .expectations p {
   font-size: 16px; }
 .expectations .grid {
@@ -62,9 +65,5 @@ footer {
     flex: 0 0 calc(30% - 40px); }
   .expectations .grid .employment {
     flex: 0 0 calc(70% - 40px); }
-
-@media screen and (max-width: 768px) {
-  .header {
-    flex-direction: column; } }
 
 /*# sourceMappingURL=styles.css.map */

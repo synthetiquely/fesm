@@ -1,0 +1,33 @@
+.expectations {
+  p {
+    font-size: 16px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      flex: 0 0 calc(50% - 40px);
+      margin: 10px;
+      padding: 5px 10px;
+      background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
+    }
+
+    .freedom {
+      flex: 0 0 calc(60% - 40px);
+    }
+
+    .equality {
+      flex: 0 0 calc(40% - 40px);
+    }
+
+    .brotherhood {
+      flex: 0 0 calc(30% - 40px);
+    }
+
+    .employment {
+      flex: 0 0 calc(70% - 40px);
+    }
+  }
+}
