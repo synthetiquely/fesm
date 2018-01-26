@@ -1,0 +1,14 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(30px, 300px) 1fr minmax(30px, 300px);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    'h h h'
+    '. c .'
+    'f f f';
+}
+
+.content {
+  grid-area: c;
+}
