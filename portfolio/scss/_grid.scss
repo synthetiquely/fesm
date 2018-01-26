@@ -1,14 +1,21 @@
 .container {
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(30px, 300px) 1fr minmax(30px, 300px);
+  grid-template-columns: minmax(30px, 300px) auto minmax(30px, 300px);
   grid-template-rows: repeat(3, auto);
   grid-template-areas:
     'h h h'
-    '. c .'
+    'c c c'
     'f f f';
 }
 
 .content {
   grid-area: c;
+  padding: 0 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 0 30px;
+  }
 }
