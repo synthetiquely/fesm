@@ -3,30 +3,31 @@
     font-size: 16px;
   }
 
-  .grid {
+  &__grid {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    padding: 10px;
 
-    div {
+    &__item {
       margin: 10px;
       padding: 5px 10px;
       background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
     }
 
-    .freedom {
+    &__item:nth-child(1) {
       flex: 0 0 calc(60% - 40px);
     }
 
-    .equality {
+    &__item:nth-child(2) {
       flex: 0 0 calc(40% - 40px);
     }
 
-    .brotherhood {
+    &__item:nth-child(3) {
       flex: 0 0 calc(30% - 40px);
     }
 
-    .employment {
+    &__item:nth-child(4) {
       flex: 0 0 calc(70% - 40px);
     }
   }
