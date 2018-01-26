@@ -5,52 +5,49 @@
   padding-bottom: 100px;
   background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
 
-  &-content {
+  &__content {
     display: flex;
     flex-direction: row;
     max-width: 1000px;
     margin: 0 auto;
-  }
 
-  .links {
-    ul {
+    &__links {
       list-style: none;
-      margin: 0;
       padding: 0;
-    }
 
-    li {
-      padding: 5px 0;
-    }
+      &__link {
+        padding: 5px 0;
+      }
 
-    li > i {
-      max-width: 18px;
-      max-height: auto;
-      opacity: 0.2;
-    }
+      li > i {
+        max-width: 18px;
+        max-height: auto;
+        opacity: 0.2;
+      }
 
-    li a {
-      margin-left: 10px;
+      li a {
+        margin-left: 10px;
+      }
     }
   }
 }
 
-.contact-form {
+.form {
   display: flex;
   flex-direction: column;
   font-size: 1rem;
   margin-left: 30px;
 
-  button,
-  input,
-  textarea {
+  &__submit,
+  &__input,
+  &__textarea {
     border: none;
     border-radius: 4px;
     min-width: 350px;
   }
 
-  input,
-  textarea {
+  &__input,
+  &__textarea {
     margin-bottom: 15px;
     padding: 15px 10px;
 
@@ -59,7 +56,7 @@
     }
   }
 
-  button {
+  &__submit {
     padding: 10px 0;
     background-color: $coral-color;
     color: #fff;
@@ -75,46 +72,46 @@
     }
   }
 
-  .file {
+  &__file {
     margin-bottom: 15px;
-  }
 
-  .file-label {
-    color: $coral-color;
-    font-weight: 600;
-    cursor: pointer;
+    &__label {
+      color: $coral-color;
+      font-weight: 600;
+      cursor: pointer;
 
-    &:hover {
-      color: $darker-coral-color;
+      &:hover {
+        color: $darker-coral-color;
+      }
     }
-  }
 
-  .file-input {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+    &__input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    &-content {
+    &__content {
       flex-direction: column;
       margin: 15px 20px 0;
     }
+  }
 
-    .contact-form {
-      margin-top: 15px;
-      margin-left: 0;
+  .form {
+    margin-top: 15px;
+    margin-left: 0;
 
-      button,
-      input,
-      textarea {
-        min-width: 0;
-      }
+    &__submit,
+    &__input,
+    &__textarea {
+      min-width: 0;
     }
   }
 }

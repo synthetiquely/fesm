@@ -13,8 +13,8 @@
 
 <body>
   <header class="header">
-    <div class="photo"></div>
-    <div class="intro">
+    <div class="header__photo"></div>
+    <div class="header__intro">
       <div>
         <h4>Фронт-енд разработчик</h4>
         <h2>Анатолий Белобровик</h2>
@@ -28,101 +28,101 @@
   </header>
   <main>
     <section class="expectations">
-      <h2>Мои ожидания</h2>
-      <div class="grid">
-        <div class="freedom">
+      <h2 class="expectations__title">Мои ожидания</h2>
+      <div class="expectations__grid">
+        <div class="expectations__grid__item">
           <h3>Свобода</h3>
           <p>Разработка медиаплана, анализируя результаты рекламной компании, нейтрализует эмпирический портрет потребителя.</p>
         </div>
-        <div class="equality">
+        <div class="expectations__grid__item">
           <h3>Равенство</h3>
           <p>Медиапланирование концентрирует пресс-клиппинг</p>
         </div>
-        <div class="brotherhood">
+        <div class="expectations__grid__item">
           <h3>Братство</h3>
           <p>Тем не менее, создание приверженного покупателя конструктивно.</p>
         </div>
-        <div class="employment">
+        <div class="expectations__grid__item">
           <h3>Трудоустройство</h3>
           <p>Корпоративная культура без оглядки на авторитеты решительно отражает рекламоноситель.</p>
         </div>
       </div>
     </section>
     <section class="works">
-      <h2>Мои работы</h2>
-      <div class="case">
+      <h2 class="works__title">Мои работы</h2>
+      <div class="works__item">
         <img src="" alt="project demo">
-        <div class="description">
+        <div class="works__item__description">
           <h4>CarFinder</h4>
-          <a target="_blank" href="https://github.com/CarFinder/CarFinderClient" class="link">github.com</a>
+          <a target="_blank" href="https://github.com/CarFinder/CarFinderClient" class="works__item__link">github.com</a>
           <p>An app that aggregates car advertisements from most major Belarusian car-selling platforms.</p>
         </div>
       </div>
-      <div class="case">
+      <div class="works__item">
         <img src="" alt="project demo">
-        <div class="description">
+        <div class="works__item__description">
           <h4>Imaguru Meetup Organizer App</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/VueDevMeetupApp" class="link">github.com</a>
+          <a target="_blank" href="https://github.com/AnatolyBelobrovik/VueDevMeetupApp" class="works__item__link">github.com</a>
           <p>An app for organizing meetups.</p>
         </div>
       </div>
-      <div class="case">
+      <div class="works__item">
         <img src="" alt="project demo">
-        <div class="description">
+        <div class="works__item__description">
           <h4>Task Tracker</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/TaskTracker" class="link">github.com</a>
+          <a target="_blank" href="https://github.com/AnatolyBelobrovik/TaskTracker" class="works__item__link">github.com</a>
           <p>Task Tracking System for Managers and Developers.</p>
         </div>
       </div>
-      <div class="case">
+      <div class="works__item">
         <img src="" alt="project demo">
-        <div class="description">
+        <div class="works__item__description">
           <h4>Survey App</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/SurveyApp" class="link">github.com</a>
+          <a target="_blank" href="https://github.com/AnatolyBelobrovik/SurveyApp" class="works__item__link">github.com</a>
           <p>An app that provides an option to manage your surveys.</p>
         </div>
       </div>
     </section>
   </main>
   <footer class="footer">
-    <h2>Контактная информация</h2>
-    <div class="footer-content">
+    <h2 class="footer__title">Контактная информация</h2>
+    <div class="footer__content">
       <div>
         <p>Я открыт для новых проектов. Вы можете прислать мне для оценки примерное техническое задание или просто описание
           проекта своими словами.
         </p>
-        <div class="links">
+        <div>
           <p>Ссылки на мои соцсети:</p>
-          <ul>
-            <li>
+          <ul class="footer__content__links">
+            <li class="footer__content__links__link">
               <i class="fab fa-facebook"></i>
               <a href="#">Facebook</a>
             </li>
-            <li>
+            <li class="footer__content__links__link">
               <i class="fab fa-vk"></i>
               <a href="#">ВКонтакте</a>
             </li>
-            <li>
+            <li class="footer__content__links__link">
               <i class="fab fa-github"></i>
               <a href="#">GitHub</a>
             </li>
-            <li>
+            <li class="footer__content__links__link">
               <i class="fab fa-twitter"></i>
               <a href="#">Twitter</a>
             </li>
           </ul>
         </div>
       </div>
-      <form class="contact-form">
-        <input type="text" name="name" id="name" value="" placeholder="Имя">
-        <input type="email" name="email" id="email" value="" placeholder="Почтовый ящик">
-        <textarea name="message" id="message" rows="4" placeholder="Сообщение"></textarea>
-        <div class="file">
-          <input type="file" name="file" id="file" class="file-input">
-          <label for="file" class="file-label">
+      <form class="form">
+        <input class="form__input" type="text" name="name" id="name" value="" placeholder="Имя">
+        <input class="form__input" type="email" name="email" id="email" value="" placeholder="Почтовый ящик">
+        <textarea class="form__textarea" name="message" id="message" rows="4" placeholder="Сообщение"></textarea>
+        <div class="form__file">
+          <input type="file" name="file" id="file" class="form__file__input">
+          <label for="file" class="form__file__label">
             <i class="fas fa-file"></i> Прикрепить ТЗ</label>
         </div>
-        <button type="submit">Отправить</button>
+        <button class="form__submit" type="submit">Отправить</button>
       </form>
     </div>
   </footer>
