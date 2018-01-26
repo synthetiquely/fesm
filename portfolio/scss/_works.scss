@@ -1,2 +1,23 @@
 .works {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(4, auto);
+
+  &__item {
+    grid-column: 1 / -1;
+    grid-row: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    &__description {
+      padding: 0 50px;
+    }
+
+    &__image {
+      object-fit: contain;
+      max-height: 300px;
+    }
+  }
 }

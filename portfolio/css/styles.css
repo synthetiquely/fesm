@@ -107,6 +107,22 @@ a {
       grid-column: 6 / 13;
       grid-row: 2 /3; }
 
+.works {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(4, auto); }
+  .works__item {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    display: flex;
+    flex-direction: row; }
+    .works__item__description {
+      padding: 0 50px; }
+    .works__item__image {
+      object-fit: contain;
+      max-height: 300px; }
+
 .footer {
   grid-area: f;
   display: flex;
