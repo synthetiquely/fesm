@@ -1,31 +1,69 @@
 .header {
   grid-area: h;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 100px 200px auto;
   background-color: $dark-blue-color;
 
   &__photo {
-    min-width: 50%;
-    min-height: 300px;
-    background: url('../assets/me.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    object-fit: cover;
   }
 
   &__intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: calc(50% - 40px);
-    min-height: 500px;
-    padding: 0 20px;
+    grid-row: 1 / 2;
+    grid-column: 2 / -1;
+    padding: 0 100px 0 50px;
     color: #fff;
+
+    &__position,
+    &__name {
+      padding-top: 20px;
+    }
+  }
+
+  &__description {
+    grid-column: 2/ 3;
+    grid-row: 2 /3;
+    color: #fff;
+    padding: 200px 100px 0 50px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    flex-direction: column;
+    padding: 50px 0 100px;
+    &__photo {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+      justify-self: center;
+      min-height: 250px;
+      max-width: 250px;
+      border-radius: 50%;
+    }
+
+    &__intro,
+    &__description {
+      text-align: center;
+      padding: 0 50px;
+    }
+
+    &__intro {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+      padding-bottom: 50px;
+
+      &__position,
+      &__name {
+        padding-top: 0;
+      }
+    }
+
+    &__description {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+      padding-top: 50px;
+    }
   }
 }
