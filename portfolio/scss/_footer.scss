@@ -1,43 +1,55 @@
 .footer {
   grid-area: f;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 100px 200px;
   background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
 
-  &__content {
-    display: flex;
-    flex-direction: row;
-    max-width: 1000px;
-    margin: 0 auto;
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
 
-    &__links {
-      list-style: none;
-      padding: 0;
+  &__description {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 
-      &__link {
-        padding: 5px 0;
-      }
+  &__links {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    padding: 0;
+    list-style: none;
 
-      li > i {
+    &__link {
+      padding: 5px 0;
+
+      &__icon {
         max-width: 18px;
-        max-height: auto;
+        height: auto;
         opacity: 0.2;
-      }
+        cursor: pointer;
 
-      li a {
-        margin-left: 10px;
+        &:hover {
+          opacity: 0.6;
+        }
       }
+    }
+
+    li a {
+      margin-left: 10px;
     }
   }
 }
 
 .form {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  margin-left: 30px;
+  padding-left: 100px;
 
   &__submit,
   &__input,
@@ -99,16 +111,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .footer {
-    &__content {
-      flex-direction: column;
-      margin: 15px 20px 0;
-    }
-  }
-
   .form {
     margin-top: 15px;
     margin-left: 0;
+    padding-left: 0;
 
     &__submit,
     &__input,
