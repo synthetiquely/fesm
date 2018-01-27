@@ -1,0 +1,48 @@
+{
+  "name": "cities-game",
+  "version": "1.0.0",
+  "description": "A game 'Cities'",
+  "main": "index.tsx",
+  "author": "Anatoly Belobrovik",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack -p --env.NODE_ENV=production",
+    "start": "webpack-dev-server --env.NODE_ENV=development",
+    "lint": "tslint ./src/**/*.t*",
+    "prettier": "prettier --list-different ./src/**/*.t*",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.35",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "prettier": "^1.10.2",
+    "style-loader": "^0.20.1",
+    "ts-loader": "^3.3.1",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.5.0",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-react": "^3.4.0",
+    "typescript": "^2.6.2",
+    "typescript-eslint-parser": "^12.0.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bulma": "^0.6.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}

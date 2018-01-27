@@ -1,0 +1,7 @@
+/.idea
+/node_modules
+/dist
+/ts-build
+/coverage
+yarn-error.log
+/coverage

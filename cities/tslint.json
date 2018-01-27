@@ -1,0 +1,9 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint-config-prettier", "tslint-config-airbnb"],
+  "rules": {
+    "variable-name": [true, "allow-pascal-case"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "import-name": [false]
+  }
+}
