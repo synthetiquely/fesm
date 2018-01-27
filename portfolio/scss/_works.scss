@@ -12,12 +12,19 @@
     flex-direction: row;
 
     &__description {
-      padding: 0 50px;
+      flex: 1;
+      padding: 0;
     }
 
     &__image {
       object-fit: contain;
       max-height: 300px;
+      max-width: 250px;
+      margin-right: 20px;
     }
+  }
+
+  &__item:nth-child(odd) {
+    flex-direction: row-reverse;
   }
 }

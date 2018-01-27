@@ -55,10 +55,10 @@ a {
     .header__intro__position, .header__intro__name {
       padding-top: 20px; }
   .header__description {
-    grid-column: 2/ 3;
-    grid-row: 2 /3;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     color: #fff;
-    padding: 200px 100px 0 50px; }
+    padding: 100px 100px 0 50px; }
 
 @media screen and (max-width: 768px) {
   .header {
@@ -118,10 +118,15 @@ a {
     display: flex;
     flex-direction: row; }
     .works__item__description {
-      padding: 0 50px; }
+      flex: 1;
+      padding: 0; }
     .works__item__image {
       object-fit: contain;
-      max-height: 300px; }
+      max-height: 300px;
+      max-width: 250px;
+      margin-right: 20px; }
+  .works__item:nth-child(odd) {
+    flex-direction: row-reverse; }
 
 .footer {
   grid-area: f;
