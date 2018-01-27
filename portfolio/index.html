@@ -5,113 +5,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Porfolio | Anatoly Belobrovik</title>
+  <title>Portfolio | Anatoly Belobrovik</title>
+  <link rel="icon" href="favicon.ico">
   <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="header__photo"></div>
-    <div class="header__intro">
-      <div>
-        <h4>Фронт-енд разработчик</h4>
-        <h2>Анатолий Белобровик</h2>
+  <div class="container">
+    <header class="header">
+      <img class="header__photo" src="assets/images/me.jpg" alt="my photo">
+      <div class="header__intro">
+        <h4 class="header__intro__position">Фронт-енд разработчик</h4>
+        <h2 class="header__intro__name">Анатолий Белобровик</h2>
       </div>
-      <p>
+      <p class="header__description">
         Рекламный макет подсознательно экономит JavaScript. Несмотря на сложности, ребрендинг Sass, LESS, PostCSS. Медиавес, конечно,
         стабилизирует экспериментальный традиционный Gulp, Webpack. Построение бренда специфицирует Python жизненный цикл
         продукции. К тому же каждая сфера рынка выражена наиболее полно. Медиабизнес искажает комплексный системный анализ
       </p>
-    </div>
-  </header>
-  <main>
-    <section class="expectations">
-      <h2 class="expectations__title">Мои ожидания</h2>
-      <div class="expectations__grid">
-        <div class="expectations__grid__item">
-          <h3>Свобода</h3>
-          <p>Разработка медиаплана, анализируя результаты рекламной компании, нейтрализует эмпирический портрет потребителя.</p>
+    </header>
+    <main class="content">
+      <section class="expectations">
+        <h2 class="expectations__title">Мои ожидания</h2>
+        <div class="expectations__grid">
+          <div class="expectations__grid__item">
+            <h3>Свобода</h3>
+            <p>Разработка медиаплана, анализируя результаты рекламной компании, нейтрализует эмпирический портрет потребителя.</p>
+          </div>
+          <div class="expectations__grid__item">
+            <h3>Равенство</h3>
+            <p>Медиапланирование концентрирует пресс-клиппинг</p>
+          </div>
+          <div class="expectations__grid__item">
+            <h3>Братство</h3>
+            <p>Тем не менее, создание приверженного покупателя конструктивно.</p>
+          </div>
+          <div class="expectations__grid__item">
+            <h3>Трудоустройство</h3>
+            <p>Корпоративная культура без оглядки на авторитеты решительно отражает рекламоноситель.</p>
+          </div>
         </div>
-        <div class="expectations__grid__item">
-          <h3>Равенство</h3>
-          <p>Медиапланирование концентрирует пресс-клиппинг</p>
+      </section>
+      <section class="works">
+        <h2 class="works__title">Мои работы</h2>
+        <div class="works__item">
+          <img class="works__item__image" src="assets/images/project1.PNG" alt="project demo">
+          <div class="works__item__description">
+            <h4>CarFinder</h4>
+            <a target="_blank" href="https://github.com/CarFinder/CarFinderClient" class="works__item__link">github.com</a>
+            <p>An app that aggregates car advertisements from most major Belarusian car-selling platforms.</p>
+          </div>
         </div>
-        <div class="expectations__grid__item">
-          <h3>Братство</h3>
-          <p>Тем не менее, создание приверженного покупателя конструктивно.</p>
+        <div class="works__item">
+          <img class="works__item__image" src="assets/images/project1.PNG" alt="project demo">
+          <div class="works__item__description">
+            <h4>Imaguru Meetup Organizer App</h4>
+            <a target="_blank" href="https://github.com/synthetiquely/VueDevMeetupApp" class="works__item__link">github.com</a>
+            <p>An app for organizing meetups.</p>
+          </div>
         </div>
-        <div class="expectations__grid__item">
-          <h3>Трудоустройство</h3>
-          <p>Корпоративная культура без оглядки на авторитеты решительно отражает рекламоноситель.</p>
+        <div class="works__item">
+          <img class="works__item__image" src="assets/images/project1.PNG" alt="project demo">
+          <div class="works__item__description">
+            <h4>Task Tracker</h4>
+            <a target="_blank" href="https://github.com/synthetiquely/TaskTracker" class="works__item__link">github.com</a>
+            <p>Task Tracking System for Managers and Developers.</p>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="works">
-      <h2 class="works__title">Мои работы</h2>
-      <div class="works__item">
-        <img src="" alt="project demo">
-        <div class="works__item__description">
-          <h4>CarFinder</h4>
-          <a target="_blank" href="https://github.com/CarFinder/CarFinderClient" class="works__item__link">github.com</a>
-          <p>An app that aggregates car advertisements from most major Belarusian car-selling platforms.</p>
+        <div class="works__item">
+          <img class="works__item__image" src="assets/images/project1.PNG" alt="project demo">
+          <div class="works__item__description">
+            <h4>Survey App</h4>
+            <a target="_blank" href="https://github.com/synthetiquely/SurveyApp" class="works__item__link">github.com</a>
+            <p>An app that provides an option to manage your surveys.</p>
+          </div>
         </div>
-      </div>
-      <div class="works__item">
-        <img src="" alt="project demo">
-        <div class="works__item__description">
-          <h4>Imaguru Meetup Organizer App</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/VueDevMeetupApp" class="works__item__link">github.com</a>
-          <p>An app for organizing meetups.</p>
-        </div>
-      </div>
-      <div class="works__item">
-        <img src="" alt="project demo">
-        <div class="works__item__description">
-          <h4>Task Tracker</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/TaskTracker" class="works__item__link">github.com</a>
-          <p>Task Tracking System for Managers and Developers.</p>
-        </div>
-      </div>
-      <div class="works__item">
-        <img src="" alt="project demo">
-        <div class="works__item__description">
-          <h4>Survey App</h4>
-          <a target="_blank" href="https://github.com/AnatolyBelobrovik/SurveyApp" class="works__item__link">github.com</a>
-          <p>An app that provides an option to manage your surveys.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <h2 class="footer__title">Контактная информация</h2>
-    <div class="footer__content">
-      <div>
-        <p>Я открыт для новых проектов. Вы можете прислать мне для оценки примерное техническое задание или просто описание
-          проекта своими словами.
-        </p>
-        <div>
-          <p>Ссылки на мои соцсети:</p>
-          <ul class="footer__content__links">
-            <li class="footer__content__links__link">
-              <i class="fab fa-facebook"></i>
-              <a href="#">Facebook</a>
-            </li>
-            <li class="footer__content__links__link">
-              <i class="fab fa-vk"></i>
-              <a href="#">ВКонтакте</a>
-            </li>
-            <li class="footer__content__links__link">
-              <i class="fab fa-github"></i>
-              <a href="#">GitHub</a>
-            </li>
-            <li class="footer__content__links__link">
-              <i class="fab fa-twitter"></i>
-              <a href="#">Twitter</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <h2 class="footer__title">Контактная информация</h2>
+      <p class="footer__description">Я открыт для новых проектов. Вы можете прислать мне для оценки примерное техническое задание или просто описание проекта
+        своими словами.
+      </p>
+      <ul class="footer__links">
+        <p>Ссылки на мои соцсети:</p>
+        <li class="footer__links__link">
+          <i class="fab fa-telegram footer__links__link__icon"></i>
+          <a target="_blank" href="https://telegram.me/synthetique">Telegram</a>
+        </li>
+        <li class="footer__links__link">
+          <i class="fab fa-github footer__links__link__icon"></i>
+          <a target="_blank" href="https://github.com/synthetiquely">GitHub</a>
+        </li>
+      </ul>
       <form class="form">
         <input class="form__input" type="text" name="name" id="name" value="" placeholder="Имя">
         <input class="form__input" type="email" name="email" id="email" value="" placeholder="Почтовый ящик">
@@ -123,8 +110,8 @@
         </div>
         <button class="form__submit" type="submit">Отправить</button>
       </form>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </body>
 
 </html>

@@ -1,34 +1,36 @@
 .expectations {
-  p {
-    font-size: 16px;
-  }
+  padding: 100px 0;
 
   &__grid {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    grid-gap: 10px;
+    padding-top: 20px;
 
     &__item {
-      margin: 10px;
       padding: 5px 10px;
       background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
     }
 
     &__item:nth-child(1) {
-      flex: 0 0 calc(60% - 40px);
+      grid-column: 1 / 9;
+      grid-row: 1 / 2;
     }
 
     &__item:nth-child(2) {
-      flex: 0 0 calc(40% - 40px);
+      grid-column: 9 / 13;
+      grid-row: 1 / 2;
     }
 
     &__item:nth-child(3) {
-      flex: 0 0 calc(30% - 40px);
+      grid-column: 1 / 6;
+      grid-row: 2 /3;
     }
 
     &__item:nth-child(4) {
-      flex: 0 0 calc(70% - 40px);
+      grid-column: 6 / 13;
+      grid-row: 2 /3;
     }
   }
 }
