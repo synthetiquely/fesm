@@ -9,11 +9,13 @@
   &__title {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
+    padding-bottom: 30px;
   }
 
   &__description {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    text-align: justify;
   }
 
   &__links {
@@ -111,6 +113,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .footer {
+    padding: 100px 30px;
+
+    &__description {
+      padding-right: 50px;
+    }
+  }
+
   .form {
     margin-top: 15px;
     margin-left: 0;
@@ -121,5 +131,30 @@
     &__textarea {
       min-width: 0;
     }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .footer {
+    padding: 50px 30px;
+
+    &__title {
+      padding-bottom: 0;
+    }
+
+    &__description {
+      grid-row: 3 / 4;
+      grid-column: 1 / -1;
+    }
+
+    &__links {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+  }
+
+  .form {
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
   }
 }
