@@ -35,6 +35,9 @@ a {
   grid-area: c;
   padding: 0 200px; }
 
+@media screen and (max-width: 1024px) {
+  .content {
+    padding: 0 30px; } }
 @media screen and (max-width: 768px) {
   .content {
     padding: 0 30px; } }
@@ -128,7 +131,7 @@ a {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px auto auto auto;
+  grid-template-rows: 30px auto auto auto;
   padding-bottom: 100px; }
   .works__title {
     grid-column: 1 / -1;
@@ -303,6 +306,9 @@ a {
       position: absolute;
       z-index: -1; }
 
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 100px 30px; } }
 @media screen and (max-width: 768px) {
   .footer {
     padding: 100px 30px; }
