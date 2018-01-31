@@ -34,10 +34,13 @@
 
     &:hover {
       background-color: $darker-coral-color;
+      animation: hover 1200ms linear 2 alternate;
     }
 
-    &:focus {
+    &:focus,
+    &:active {
       outline-color: $coral-color;
+      animation: active 1200ms ease 1 alternate;
     }
   }
 
