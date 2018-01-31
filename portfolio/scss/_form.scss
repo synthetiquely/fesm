@@ -67,6 +67,8 @@
 
 @media screen and (max-width: 768px) {
   .form {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
     margin-top: 15px;
     margin-left: 0;
     padding-left: 0;
@@ -81,7 +83,7 @@
 
 @media screen and (max-width: 375px) {
   .form {
-    grid-row: 4 / 5;
     grid-column: 1 / -1;
+    grid-row: 4 / 5;
   }
 }

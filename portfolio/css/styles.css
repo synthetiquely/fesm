@@ -41,6 +41,9 @@ a {
 @media screen and (max-width: 768px) {
   .content {
     padding: 0 30px; } }
+@media screen and (max-width: 375px) {
+  .content {
+    padding: 0 15px; } }
 .header {
   grid-area: h;
   display: grid;
@@ -60,10 +63,17 @@ a {
       padding-top: 20px; }
   .header__description {
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 2 / -1;
     color: #fff;
-    padding: 100px 100px 0 50px; }
+    align-self: end;
+    padding: 0 100px 100px 50px; }
 
+@media screen and (max-width: 1024px) {
+  .header__photo {
+    max-width: 500px;
+    height: 100%; }
+  .header__description {
+    padding: 50px 50px 0; } }
 @media screen and (max-width: 768px) {
   .header {
     padding: 50px 0 100px; }
@@ -79,14 +89,13 @@ a {
       padding: 0 50px; }
     .header__intro {
       grid-column: 1 / -1;
-      grid-row: 1 / 2;
-      padding-bottom: 50px; }
+      grid-row: 1 / 2; }
       .header__intro__position, .header__intro__name {
         padding-top: 0; }
     .header__description {
       grid-column: 1 / -1;
       grid-row: 3 / 4;
-      padding-top: 50px; } }
+      padding-top: 100px; } }
 .expectations {
   padding: 100px 0; }
   .expectations__grid {
@@ -106,27 +115,29 @@ a {
       grid-row: 1 / 2; }
     .expectations__grid__item:nth-child(3) {
       grid-column: 1 / 6;
-      grid-row: 2 /3; }
+      grid-row: 2 / 3; }
     .expectations__grid__item:nth-child(4) {
       grid-column: 6 / 13;
-      grid-row: 2 /3; }
+      grid-row: 2 / 3; }
 
 @media screen and (max-width: 375px) {
   .expectations {
     padding: 50px 0; }
 
-  .expectations__grid__item:nth-child(1) {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1; }
+  .expectations__grid {
+    max-width: 345px;
+    height: 200px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth; }
 
-  .expectations__grid__item:nth-child(2) {
-    display: none; }
-
-  .expectations__grid__item:nth-child(3) {
-    display: none; }
-
-  .expectations__grid__item:nth-child(4) {
-    display: none; } }
+  .expectations__grid__item {
+    width: 325px;
+    height: 200px;
+    flex-shrink: 0;
+    position: relative;
+    padding: 0 10px;
+    animation: 10s slidy infinite; } }
 .works {
   display: grid;
   grid-gap: 20px;
@@ -239,6 +250,8 @@ a {
 
 @media screen and (max-width: 768px) {
   .form {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
     margin-top: 15px;
     margin-left: 0;
     padding-left: 0; }
@@ -246,8 +259,8 @@ a {
       min-width: 0; } }
 @media screen and (max-width: 375px) {
   .form {
-    grid-row: 4 / 5;
-    grid-column: 1 / -1; } }
+    grid-column: 1 / -1;
+    grid-row: 4 / 5; } }
 .footer {
   grid-area: f;
   display: grid;
@@ -287,18 +300,26 @@ a {
   .footer {
     padding: 100px 30px; }
     .footer__description {
-      padding-right: 50px; } }
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      padding-right: 50px; }
+    .footer__links {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      margin: 0;
+      justify-self: center; } }
 @media screen and (max-width: 375px) {
   .footer {
-    padding: 50px 30px; }
+    padding: 50px 15px; }
     .footer__title {
       padding-bottom: 0; }
     .footer__description {
-      grid-row: 3 / 4;
-      grid-column: 1 / -1; }
+      grid-column: 1 / -1;
+      grid-row: 3 / 4; }
     .footer__links {
+      grid-column: 1 / -1;
       grid-row: 2 / 3;
-      grid-column: 1 / -1; } }
+      justify-self: start; } }
 .slider {
   display: flex;
   flex-direction: row-reverse; }
@@ -309,6 +330,8 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center; }
+    .slider__links_hide-on-desktop {
+      display: none; }
     .slider__links__link {
       width: 8px;
       height: 8px;
@@ -355,8 +378,13 @@ a {
       height: auto;
       flex-direction: row; }
       .slider__links__link {
-        margin: 0.5rem 0.5rem; } }
+        margin: 0.5rem 0.5rem; }
+    .slider__slides__slide {
+      object-fit: cover; } }
 @media screen and (max-width: 375px) {
+  .slider__links_hide-on-desktop {
+    display: flex; }
+
   .slider__slides {
     max-width: 300px; }
     .slider__slides__slide {

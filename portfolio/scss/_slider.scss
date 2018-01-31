@@ -10,6 +10,10 @@
     align-items: center;
     justify-content: center;
 
+    &_hide-on-desktop {
+      display: none;
+    }
+
     &__link {
       width: 8px;
       height: 8px;
@@ -80,10 +84,20 @@
         margin: 0.5rem 0.5rem;
       }
     }
+
+    &__slides {
+      &__slide {
+        object-fit: cover;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 375px) {
+  .slider__links_hide-on-desktop {
+    display: flex;
+  }
+
   .slider__slides {
     max-width: 300px;
 

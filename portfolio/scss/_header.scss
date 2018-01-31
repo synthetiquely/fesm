@@ -25,9 +25,22 @@
 
   &__description {
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 2 / -1;
     color: #fff;
-    padding: 100px 100px 0 50px;
+    align-self: end;
+    padding: 0 100px 100px 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    &__photo {
+      max-width: 500px;
+      height: 100%;
+    }
+    &__description {
+      padding: 50px 50px 0;
+    }
   }
 }
 
@@ -53,7 +66,6 @@
     &__intro {
       grid-column: 1 / -1;
       grid-row: 1 / 2;
-      padding-bottom: 50px;
 
       &__position,
       &__name {
@@ -64,7 +76,7 @@
     &__description {
       grid-column: 1 / -1;
       grid-row: 3 / 4;
-      padding-top: 50px;
+      padding-top: 100px;
     }
   }
 }

@@ -56,27 +56,37 @@
     padding: 100px 30px;
 
     &__description {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
       padding-right: 50px;
+    }
+
+    &__links {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      margin: 0;
+      justify-self: center;
     }
   }
 }
 
 @media screen and (max-width: 375px) {
   .footer {
-    padding: 50px 30px;
+    padding: 50px 15px;
 
     &__title {
       padding-bottom: 0;
     }
 
     &__description {
-      grid-row: 3 / 4;
       grid-column: 1 / -1;
+      grid-row: 3 / 4;
     }
 
     &__links {
-      grid-row: 2 / 3;
       grid-column: 1 / -1;
+      grid-row: 2 / 3;
+      justify-self: start;
     }
   }
 }
