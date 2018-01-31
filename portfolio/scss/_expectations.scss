@@ -7,10 +7,16 @@
     grid-template-rows: auto auto;
     grid-gap: 10px;
     padding-top: 20px;
+    overflow-y: hidden;
 
     &__item {
       padding: 5px 10px 15px;
       background: linear-gradient(to bottom right, $light-green-color-1, $light-green-color-2);
+
+      &:hover {
+        box-shadow: 3px 3px #ccc;
+        cursor: pointer;
+      }
     }
 
     &__item:nth-child(1) {
