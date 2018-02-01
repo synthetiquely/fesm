@@ -5610,3 +5610,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+ymaps@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ymaps/-/ymaps-0.1.1.tgz#aab7707f3f1c998e05e6c935087b32998e92d98e"
