@@ -28,12 +28,16 @@ module.exports = env => {
           include: path.resolve('src'),
         },
         {
-          test: /\.css$/,
+          test: /\.(scss|sass)$/,
           loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: 'css-loader',
+            use: 'css-loader!sass-loader',
           }),
           include: path.resolve('src'),
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },
