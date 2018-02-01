@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = env => {
   return {
@@ -54,6 +55,7 @@ module.exports = env => {
           NODE_ENV: JSON.stringify(env.NODE_ENV),
         },
       }),
+      new OpenBrowserPlugin({ url: 'http://localhost:3000 ' }),
     ],
   };
 };
