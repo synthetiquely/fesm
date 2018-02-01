@@ -1,21 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import Layout from './Common/Layout';
-import Form from './Form';
-import Map from './Map';
+import Game from './Game';
 
-const App = () => (
-  <Layout>
-    <div className="columns is-centered">
-      <div className="column is-narrow">
-        <Form />
-      </div>
-    </div>
-    <div className="columns is-centered">
-      <div className="column is-narrow">
-        <Map />
-      </div>
-    </div>
-  </Layout>
-);
+const App = (props: any) => {
+  return (
+    <Layout>
+      <Game {...props} />
+    </Layout>
+  );
+};
 
 export default App;

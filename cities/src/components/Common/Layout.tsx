@@ -15,7 +15,7 @@ const Layout = (props: any) => (
       </div>
     </header>
 
-    <main className="container if-fluid">
+    <main className="container is-fluid">
       <section className="section">{props.children}</section>
     </main>
   </React.Fragment>

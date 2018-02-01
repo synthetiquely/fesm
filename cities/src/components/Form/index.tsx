@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-export interface Props {}
+export interface Props {
+  gameInProgress: boolean;
+}
 export interface State {}
 
 class Form extends React.PureComponent<Props, State> {
@@ -9,6 +11,7 @@ class Form extends React.PureComponent<Props, State> {
   }
 
   public render() {
+    const { gameInProgress } = this.props;
     return (
       <form>
         <div className="field has-addons">
@@ -19,6 +22,7 @@ class Form extends React.PureComponent<Props, State> {
               placeholder="Введите город"
               autoFocus
               autoComplete="off"
+              disabled={!gameInProgress}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-map-marker" />
@@ -28,7 +32,9 @@ class Form extends React.PureComponent<Props, State> {
             </span>
           </div>
           <div className="control is-large">
-            <button className="button is-primary is-large">Отправить</button>
+            <button className="button is-primary is-large" disabled={!gameInProgress}>
+              Отправить
+            </button>
           </div>
         </div>
       </form>
