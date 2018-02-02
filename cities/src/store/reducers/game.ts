@@ -42,7 +42,7 @@ const gameReducer = (state: StateModel = initialState, action: GameActions): Sta
         currentSession: {
           currentPlayer: 'player',
           currentCity: action.payload,
-          currentLetter: action.payload.slice(-1),
+          currentLetter: action.payload.slice(-1).toLowerCase(),
         },
       };
     case actionTypes.CITY_CHOSED_BY_COMPUTER:
