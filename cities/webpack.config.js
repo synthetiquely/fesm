@@ -16,6 +16,10 @@ module.exports = env => {
     devServer: {
       port: 3000,
       historyApiFallback: true,
+      allowedHosts: ['maps.googleapis.com'],
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx', 'css'],

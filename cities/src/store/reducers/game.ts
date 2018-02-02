@@ -1,4 +1,5 @@
 import { StateModel } from '../stateModel';
+import { GameActions } from '../actionCreators/game';
 import * as actionTypes from '../actionTypes';
 
 export const initialState: StateModel = {
@@ -7,7 +8,7 @@ export const initialState: StateModel = {
   gameInProgress: false,
 };
 
-const gameReducer = (state: StateModel = initialState, action: any): StateModel => {
+const gameReducer = (state: StateModel = initialState, action: GameActions): StateModel => {
   switch (action.type) {
     case actionTypes.GAME_STARTED:
       return {
@@ -34,6 +35,7 @@ const gameReducer = (state: StateModel = initialState, action: any): StateModel 
           },
         };
       }
+      return state;
     case actionTypes.CITY_CHOSED_BY_USER:
       return {
         ...state,

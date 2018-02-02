@@ -1,10 +1,35 @@
 import Game from './components/Game';
 import { connect } from 'react-redux';
+import { gameStarted, gameFinished, cityFetched } from '../../store/actionCreators/game';
+
+interface StateToProps {
+  apiError: any;
+  isLoading: boolean;
+  gameInProgress: boolean;
+  currentLetter: string;
+}
+
+interface DispatchToProps {
+  handleStartGame: () => void;
+  handleFinishGame: () => void;
+  handleSubmitForm: (city: string) => void;
+}
 
 const mapStateToProps = (state: any) => {
   return {
+    currentLetter: state.game.currentSession ? state.game.currentSession.currentLetter : '',
     gameInProgress: state.game.gameInProgress,
+    apiError: state.helpers.error,
+    isLoading: state.helpers.isLoading,
   };
 };
 
-export default connect<any, any>(mapStateToProps, {})(Game);
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    handleStartGame: () => dispatch(gameStarted()),
+    handleFinishGame: () => dispatch(gameFinished()),
+    handleSubmitForm: (city: string) => dispatch(cityFetched(city)),
+  };
+};
+
+export default connect<StateToProps, DispatchToProps>(mapStateToProps, mapDispatchToProps)(Game);

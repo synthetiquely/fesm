@@ -14,6 +14,7 @@
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/react": "^16.0.35",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
@@ -43,6 +44,7 @@
     "axios": "^0.17.1",
     "bulma": "^0.6.2",
     "bulmaswatch": "^0.5.2",
+    "classnames": "^2.2.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",

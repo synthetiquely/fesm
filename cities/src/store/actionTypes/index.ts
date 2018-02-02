@@ -12,3 +12,9 @@ export type GAME_STARTED = typeof GAME_STARTED;
 
 export const GAME_FINISHED = 'GAME_FINISHED';
 export type GAME_FINISHED = typeof GAME_FINISHED;
+
+export const LOADING_TOGGLED = 'LOADING_TOGGLED';
+export type LOADING_TOGGLED = typeof LOADING_TOGGLED;
+
+export const ERROR_SET = 'ERROR_SET';
+export type ERROR_SET = typeof ERROR_SET;

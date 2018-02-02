@@ -7,6 +7,7 @@ import './index.scss';
 
 export interface Props {}
 export interface State {
+  loading: boolean;
   map: any;
 }
 
@@ -18,6 +19,7 @@ class Map extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      loading: false,
       map: null,
     };
     this.maps = null;
@@ -28,6 +30,9 @@ class Map extends React.PureComponent<Props, State> {
   }
 
   initMap = () => {
+    this.setState({
+      loading: true,
+    });
     YMaps.load().then((maps: any) => {
       const map = new maps.Map('map', {
         center: [55.76, 37.64],
@@ -36,6 +41,7 @@ class Map extends React.PureComponent<Props, State> {
       this.maps = maps;
       this.setState({
         map,
+        loading: false,
       });
     });
   };
@@ -58,7 +64,7 @@ class Map extends React.PureComponent<Props, State> {
     }
   };
 
-  public render() {
+  render() {
     return <div id="map" className="map" />;
   }
 }
