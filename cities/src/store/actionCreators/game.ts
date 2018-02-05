@@ -3,8 +3,7 @@ import axios, { AxiosResponse, AxiosError, AxiosPromise } from 'axios';
 import { Store } from 'redux';
 import { StoreModel } from '../index';
 import { loadingToggled, errorSet, HelpersActions } from './helpers';
-
-declare const google: any;
+import { initializeGoogleMapsService } from '../../utils';
 
 export interface CityChosedByUser {
   type: actionTypes.CITY_CHOSED_BY_USER;
@@ -66,7 +65,7 @@ export function cityFetched(city: string) {
     dispatch(errorSet(null));
     dispatch(loadingToggled(true));
 
-    const service = new google.maps.places.PlacesService(document.getElementById('map'));
+    const service = initializeGoogleMapsService('g-map');
 
     service.textSearch(
       {

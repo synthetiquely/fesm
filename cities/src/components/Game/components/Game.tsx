@@ -62,6 +62,7 @@ class Game extends React.PureComponent<Props, State> {
             </div>
           </div>
         )}
+        <div id="g-map" style={{ visibility: 'hidden' }} />
       </div>
     );
   }

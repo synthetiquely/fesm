@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import { validateCityName } from '../../utils/validate';
 
 export interface Props {
   currentLetter: string;
@@ -32,7 +33,7 @@ class Form extends React.PureComponent<Props, State> {
   }
 
   validate = (value: string) => {
-    if (value.trim() !== '') {
+    if (validateCityName(value.trim())) {
       if (this.props.currentLetter) {
         if (this.props.currentLetter === value[0].toLowerCase()) {
           return true;
@@ -51,14 +52,17 @@ class Form extends React.PureComponent<Props, State> {
     });
     if (this.validate(this.state.city)) {
       this.props.handleSubmitForm(this.state.city);
+      this.setState({
+        city: '',
+      });
     } else {
       if (this.props.currentLetter) {
         this.setState({
-          error: 'Вы забыли ввести название города',
+          error: `Введите город на букву "${this.props.currentLetter}"`,
         });
       } else {
         this.setState({
-          error: `Введите город на букву ${this.props.currentLetter}`,
+          error: `Похоже вы забыли ввести название города`,
         });
       }
     }

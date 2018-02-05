@@ -1,6 +1,7 @@
 import { StateModel } from '../stateModel';
 import { GameActions } from '../actionCreators/game';
 import * as actionTypes from '../actionTypes';
+import { extractLastLetter } from '../../utils';
 
 export const initialState: StateModel = {
   currentSession: null,
@@ -18,6 +19,7 @@ const gameReducer = (state: StateModel = initialState, action: GameActions): Sta
     case actionTypes.GAME_FINISHED:
       return {
         ...state,
+        currentSession: null,
         gameInProgress: false,
       };
     case actionTypes.CURRENT_SESSION_CLEARED:
@@ -42,7 +44,7 @@ const gameReducer = (state: StateModel = initialState, action: GameActions): Sta
         currentSession: {
           currentPlayer: 'player',
           currentCity: action.payload,
-          currentLetter: action.payload.slice(-1).toLowerCase(),
+          currentLetter: extractLastLetter(action.payload),
         },
       };
     case actionTypes.CITY_CHOSED_BY_COMPUTER:
@@ -51,7 +53,7 @@ const gameReducer = (state: StateModel = initialState, action: GameActions): Sta
         currentSession: {
           currentPlayer: 'computer',
           currentCity: action.payload,
-          currentLetter: action.payload.slice(-1),
+          currentLetter: extractLastLetter(action.payload),
         },
       };
     default:
