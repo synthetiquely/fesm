@@ -1,3 +1,13 @@
+declare const google: any;
+
+export const initializeGoogleMapsPlacesService = (rootId: string) => {
+  return new google.maps.places.PlacesService(document.getElementById(rootId));
+};
+
+export const initializeGoogleMapsAutocompleteService = () => {
+  return new google.maps.places.AutocompleteService();
+};
+
 export const extractLastLetter = (city: string): string => {
   const lastLetter = city.slice(-1).toLowerCase();
   if (lastLetter === 'ь' || lastLetter === 'й' || lastLetter === 'ъ' || lastLetter === 'ы') {
@@ -6,8 +16,21 @@ export const extractLastLetter = (city: string): string => {
   return lastLetter;
 };
 
-declare const google: any;
+export const getOptionsForGoogleMapService = (query: string, options?: any): object => {
+  return {
+    query,
+    ...options,
+  };
+};
 
-export const initializeGoogleMapsService = (rootId: string) => {
-  return new google.maps.places.PlacesService(document.getElementById(rootId));
+export const getRandomCityFromArray = (cityArr: any[], prevChoices: any[]): string => {
+  const randomIndex = Math.floor(Math.random() * cityArr.length);
+  const selectedCity = cityArr[randomIndex].structured_formatting.main_text;
+  const isCityAlreadyChosed = !!prevChoices.find(
+    choice => choice.city.toLowerCase() === selectedCity.toLowerCase(),
+  );
+  if (isCityAlreadyChosed) {
+    return getRandomCityFromArray(cityArr, prevChoices);
+  }
+  return selectedCity;
 };
