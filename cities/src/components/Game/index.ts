@@ -6,7 +6,15 @@ interface StateToProps {
   apiError: any;
   isLoading: boolean;
   gameInProgress: boolean;
+  currentPlayer: string;
+  currentCity: string;
   currentLetter: string;
+  previousSessions: {
+    choices: {
+      city: string;
+      chosedByUser: boolean;
+    }[];
+  };
 }
 
 interface DispatchToProps {
@@ -17,8 +25,11 @@ interface DispatchToProps {
 
 const mapStateToProps = (state: any) => {
   return {
+    currentPlayer: state.game.currentSession ? state.game.currentSession.currentPlayer : '',
+    currentCity: state.game.currentSession ? state.game.currentSession.currentCity : '',
     currentLetter: state.game.currentSession ? state.game.currentSession.currentLetter : '',
     gameInProgress: state.game.gameInProgress,
+    previousSessions: state.game.previousSessions,
     apiError: state.helpers.error,
     isLoading: state.helpers.isLoading,
   };

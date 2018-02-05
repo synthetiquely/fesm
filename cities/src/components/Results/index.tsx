@@ -1,44 +1,45 @@
 import * as React from 'react';
 
-export interface Props {}
+export interface Props {
+  previousSessions: {
+    choices: {
+      city: string;
+      chosedByUser: boolean;
+    }[];
+  };
+}
 
-const Results = (props: Props) => (
-  <table className="table is-hoverable is-striped">
-    <thead>
-      <tr className="is-selected">
-        <th>Ход</th>
-        <th>Город</th>
-        <th>Игрок</th>
-      </tr>
-    </thead>
-    <tbody>
+const Results = (props: Props) => {
+  const renderItems = () => {
+    if (props.previousSessions.choices.length) {
+      return props.previousSessions.choices.map((choice, index) => {
+        return (
+          <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{choice.city}</td>
+            <td>{choice.chosedByUser ? 'Игрок' : 'Компьютер'}</td>
+          </tr>
+        );
+      });
+    }
+    return (
       <tr>
-        <th>1</th>
-        <th>Минск</th>
-        <th>Вы</th>
+        <td colSpan={3}>Ходов пока не было</td>
       </tr>
-      <tr>
-        <th>1</th>
-        <th>Минск</th>
-        <th>Вы</th>
-      </tr>
-      <tr>
-        <th>1</th>
-        <th>Минск</th>
-        <th>Вы</th>
-      </tr>
-      <tr>
-        <th>1</th>
-        <th>Минск</th>
-        <th>Вы</th>
-      </tr>
-      <tr>
-        <th>1</th>
-        <th>Минск</th>
-        <th>Вы</th>
-      </tr>
-    </tbody>
-  </table>
-);
+    );
+  };
+  return (
+    <table className="table is-hoverable is-striped">
+      <thead>
+        <tr className="is-selected">
+          <th>Ход</th>
+          <th>Город</th>
+          <th>Игрок</th>
+        </tr>
+      </thead>
+      <tbody>{renderItems()}</tbody>
+    </table>
+  );
+};
 
 export default Results;

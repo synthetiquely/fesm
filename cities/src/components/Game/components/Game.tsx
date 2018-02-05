@@ -3,12 +3,21 @@ import Form from '../../Form';
 import Map from '../../Map';
 import Results from '../../Results';
 import StartGame from './StartGame';
+import CurrentSession from './CurrentSession';
 
 interface Props {
   apiError: any;
   isLoading: boolean;
   gameInProgress: boolean;
   currentLetter: string;
+  currentCity: string;
+  currentPlayer: string;
+  previousSessions: {
+    choices: {
+      city: string;
+      chosedByUser: boolean;
+    }[];
+  };
   handleStartGame: () => void;
   handleFinishGame: () => void;
   handleSubmitForm: (city: string) => void;
@@ -30,10 +39,29 @@ class Game extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { currentLetter, gameInProgress, apiError, isLoading } = this.props;
+    const {
+      currentCity,
+      currentPlayer,
+      currentLetter,
+      gameInProgress,
+      previousSessions,
+      apiError,
+      isLoading,
+    } = this.props;
     return (
       <div>
         <StartGame gameInProgress={gameInProgress} onToggleGame={this.onToggleGame} />
+        {gameInProgress && (
+          <div className="columns is-centered">
+            <div className="column is-narrow">
+              <CurrentSession
+                currentCity={currentCity}
+                currentPlayer={currentPlayer}
+                currentLetter={currentLetter}
+              />
+            </div>
+          </div>
+        )}
         {gameInProgress && (
           <div className="columns is-centered">
             <div className="column is-narrow">
@@ -52,13 +80,9 @@ class Game extends React.PureComponent<Props, State> {
             <div className="column is-narrow">
               <Map />
             </div>
-          </div>
-        )}
-        {gameInProgress && (
-          <div className="columns is-centered">
             <div className="column is-narrow">
               <h3 className="title">Ходы</h3>
-              <Results />
+              <Results previousSessions={previousSessions} />
             </div>
           </div>
         )}

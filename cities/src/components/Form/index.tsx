@@ -51,7 +51,7 @@ class Form extends React.PureComponent<Props, State> {
       error: null,
     });
     if (this.validate(this.state.city)) {
-      this.props.handleSubmitForm(this.state.city);
+      this.props.handleSubmitForm(this.state.city.trim());
       this.setState({
         city: '',
       });
