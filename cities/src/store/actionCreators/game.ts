@@ -9,6 +9,7 @@ import {
   getOptionsForGoogleMapService,
   getRandomCityFromArray,
 } from '../../utils';
+import { Choice } from '../../interfaces';
 
 export interface CityChosedByUser {
   type: actionTypes.CITY_CHOSED_BY_USER;
@@ -90,7 +91,9 @@ export function cityHaphazardlyChosed(): any {
             dispatch(nextSessionStarted());
           } else {
             dispatch(
-              errorSet('Кажется, у компьютера закончились варианты. Похоже, что вы победили.'),
+              errorSet(
+                'Кажется, у компьютера закончились варианты. Похоже, что вы победили.',
+              ),
             );
           }
         },
@@ -104,14 +107,17 @@ export function cityFetched(city: string): any {
     dispatch(errorSet(null));
     dispatch(loadingToggled(true));
     const service = initializeGoogleMapsPlacesService('g-map');
-    const searchParams = getOptionsForGoogleMapService(city, { types: '(cities)', language: 'ru' });
+    const searchParams = getOptionsForGoogleMapService(city, {
+      types: '(cities)',
+      language: 'ru',
+    });
     service.textSearch(searchParams, (predictions: any[]) => {
       dispatch(loadingToggled(false));
 
       if (predictions.length) {
         const previousChoices = getState().game.previousSessions.choices;
         const isCityAlreadyChosed = !!previousChoices.find(
-          choice => choice.city.toLowerCase() === city.toLowerCase(),
+          (choice: Choice) => choice.city.toLowerCase() === city.toLowerCase(),
         );
 
         if (!isCityAlreadyChosed) {
@@ -122,11 +128,18 @@ export function cityFetched(city: string): any {
           dispatch(errorSet('Этот город уже был. Выберите другой'));
         }
       } else {
-        dispatch(errorSet('Похоже такого города не существует, выберите другой'));
+        dispatch(
+          errorSet('Похоже такого города не существует, выберите другой'),
+        );
       }
     });
   };
 }
 
-type Dispatch = (action: GameActions | HelpersActions | ThunkAction | Promise<GameActions>) => any;
-type ThunkAction = (dispatch: Dispatch, getState: () => StoreModel) => AxiosPromise;
+type Dispatch = (
+  action: GameActions | HelpersActions | ThunkAction | Promise<GameActions>,
+) => any;
+type ThunkAction = (
+  dispatch: Dispatch,
+  getState: () => StoreModel,
+) => AxiosPromise;

@@ -9,7 +9,10 @@ export const initialState: StateModel = {
   gameInProgress: false,
 };
 
-const gameReducer = (state: StateModel = initialState, action: GameActions): StateModel => {
+const gameReducer = (
+  state: StateModel = initialState,
+  action: GameActions,
+): StateModel => {
   switch (action.type) {
     case actionTypes.GAME_STARTED:
       return {
@@ -31,7 +34,10 @@ const gameReducer = (state: StateModel = initialState, action: GameActions): Sta
               ...state.previousSessions.choices,
               {
                 city: state.currentSession.currentCity,
-                chosedByUser: state.currentSession.currentPlayer === 'player' ? true : false,
+                chosedByUser:
+                  state.currentSession.currentPlayer === 'player'
+                    ? true
+                    : false,
               },
             ],
           },

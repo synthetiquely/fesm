@@ -1,6 +1,11 @@
 import Game from './components/Game';
 import { connect } from 'react-redux';
-import { gameStarted, gameFinished, cityFetched } from '../../store/actionCreators/game';
+import {
+  gameStarted,
+  gameFinished,
+  cityFetched,
+} from '../../store/actionCreators/game';
+import { PreviousSessions } from '../../interfaces';
 
 interface StateToProps {
   apiError: any;
@@ -9,12 +14,7 @@ interface StateToProps {
   currentPlayer: string;
   currentCity: string;
   currentLetter: string;
-  previousSessions: {
-    choices: {
-      city: string;
-      chosedByUser: boolean;
-    }[];
-  };
+  previousSessions: PreviousSessions;
 }
 
 interface DispatchToProps {
@@ -25,9 +25,15 @@ interface DispatchToProps {
 
 const mapStateToProps = (state: any) => {
   return {
-    currentPlayer: state.game.currentSession ? state.game.currentSession.currentPlayer : '',
-    currentCity: state.game.currentSession ? state.game.currentSession.currentCity : '',
-    currentLetter: state.game.currentSession ? state.game.currentSession.currentLetter : '',
+    currentPlayer: state.game.currentSession
+      ? state.game.currentSession.currentPlayer
+      : '',
+    currentCity: state.game.currentSession
+      ? state.game.currentSession.currentCity
+      : '',
+    currentLetter: state.game.currentSession
+      ? state.game.currentSession.currentLetter
+      : '',
     gameInProgress: state.game.gameInProgress,
     previousSessions: state.game.previousSessions,
     apiError: state.helpers.error,
@@ -43,4 +49,7 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect<StateToProps, DispatchToProps>(mapStateToProps, mapDispatchToProps)(Game);
+export default connect<StateToProps, DispatchToProps>(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Game);

@@ -10,7 +10,10 @@ export const initialState: HelpersModel = {
   isLoading: false,
 };
 
-const helpersReducer = (state: HelpersModel = initialState, action: any): HelpersModel => {
+const helpersReducer = (
+  state: HelpersModel = initialState,
+  action: any,
+): HelpersModel => {
   switch (action.type) {
     case actionTypes.LOADING_TOGGLED:
       return {

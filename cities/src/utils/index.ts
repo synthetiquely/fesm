@@ -1,3 +1,5 @@
+import { Choice, PreviousSessions } from '../interfaces';
+
 declare const google: any;
 
 export const initializeGoogleMapsPlacesService = (rootId: string) => {
@@ -10,24 +12,36 @@ export const initializeGoogleMapsAutocompleteService = () => {
 
 export const extractLastLetter = (city: string): string => {
   const lastLetter = city.slice(-1).toLowerCase();
-  if (lastLetter === 'ь' || lastLetter === 'й' || lastLetter === 'ъ' || lastLetter === 'ы') {
+  if (
+    lastLetter === 'ь' ||
+    lastLetter === 'й' ||
+    lastLetter === 'ъ' ||
+    lastLetter === 'ы'
+  ) {
     return extractLastLetter(city.slice(0, city.length - 1));
   }
   return lastLetter;
 };
 
-export const getOptionsForGoogleMapService = (query: string, options?: any): object => {
+export const getOptionsForGoogleMapService = (
+  query: string,
+  options?: any,
+): object => {
   return {
     query,
     ...options,
   };
 };
 
-export const getRandomCityFromArray = (cityArr: any[], prevChoices: any[]): string => {
+export const getRandomCityFromArray = (
+  cityArr: any[],
+  prevChoices: Choice[],
+): string => {
   const randomIndex = Math.floor(Math.random() * cityArr.length);
   const selectedCity = cityArr[randomIndex].structured_formatting.main_text;
   const isCityAlreadyChosed = !!prevChoices.find(
-    choice => choice.city.toLowerCase() === selectedCity.toLowerCase(),
+    (choice: Choice) =>
+      choice.city.toLowerCase() === selectedCity.toLowerCase(),
   );
   if (isCityAlreadyChosed) {
     return getRandomCityFromArray(cityArr, prevChoices);

@@ -50,7 +50,10 @@ class Game extends React.PureComponent<Props, State> {
     } = this.props;
     return (
       <div>
-        <StartGame gameInProgress={gameInProgress} onToggleGame={this.onToggleGame} />
+        <StartGame
+          gameInProgress={gameInProgress}
+          onToggleGame={this.onToggleGame}
+        />
         {gameInProgress && (
           <div className="columns is-centered">
             <div className="column is-narrow">

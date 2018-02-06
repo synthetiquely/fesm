@@ -110,7 +110,9 @@ class Form extends React.PureComponent<Props, State> {
           </div>
           <div className="control is-large">
             <button
-              className={classnames('button is-primary is-large', { 'is-loading': isLoading })}
+              className={classnames('button is-primary is-large', {
+                'is-loading': isLoading,
+              })}
               disabled={!gameInProgress}
               type="submit"
             >

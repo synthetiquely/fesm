@@ -1,12 +1,8 @@
 import * as React from 'react';
+import { PreviousSessions } from '../../interfaces';
 
 export interface Props {
-  previousSessions: {
-    choices: {
-      city: string;
-      chosedByUser: boolean;
-    }[];
-  };
+  previousSessions: PreviousSessions;
 }
 
 const Results = (props: Props) => {

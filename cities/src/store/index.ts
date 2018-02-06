@@ -4,7 +4,10 @@ import reduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { StateModel } from './stateModel';
 import { initialState as initialGameState } from './reducers/game';
-import { initialState as initialHelpersState, HelpersModel } from './reducers/helpers';
+import {
+  initialState as initialHelpersState,
+  HelpersModel,
+} from './reducers/helpers';
 
 export interface StoreModel {
   game: StateModel;
