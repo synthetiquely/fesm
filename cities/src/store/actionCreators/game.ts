@@ -1,15 +1,13 @@
 import * as actionTypes from '../actionTypes';
-import axios, { AxiosResponse, AxiosError, AxiosPromise } from 'axios';
-import { Store } from 'redux';
-import { StoreModel } from '../index';
-import { loadingToggled, errorSet, HelpersActions } from './helpers';
-import {
-  initializeGoogleMapsPlacesService,
-  initializeGoogleMapsAutocompleteService,
-  getOptionsForGoogleMapService,
-  getRandomCityFromArray,
-} from '../../utils';
-import { Choice } from '../../interfaces';
+
+export type GameActions =
+  | CityFetched
+  | CityFetchedByComputer
+  | CityChosedByUser
+  | CityChosedByComputer
+  | GameStarted
+  | GameFinished
+  | CurrentSessionCleared;
 
 export interface CityChosedByUser {
   type: actionTypes.CITY_CHOSED_BY_USER;
@@ -33,12 +31,14 @@ export interface CurrentSessionCleared {
   type: actionTypes.CURRENT_SESSION_CLEARED;
 }
 
-export type GameActions =
-  | CityChosedByUser
-  | CityChosedByComputer
-  | GameStarted
-  | GameFinished
-  | CurrentSessionCleared;
+export interface CityFetched {
+  type: actionTypes.CITY_FETCHED;
+  payload: string;
+}
+
+export interface CityFetchedByComputer {
+  type: actionTypes.CITY_FETCHED_BY_COMPUTER;
+}
 
 export function gameStarted(): GameStarted {
   return {
@@ -72,74 +72,15 @@ export function cityChosedByComputer(city: string): CityChosedByComputer {
   };
 }
 
-export function cityHaphazardlyChosed(): any {
-  return (dispatch: Dispatch, getState: () => StoreModel) => {
-    dispatch(loadingToggled(true));
-    const userChoice = getState().game.currentSession;
-
-    if (userChoice) {
-      const service = initializeGoogleMapsAutocompleteService();
-
-      service.getPlacePredictions(
-        { input: userChoice.currentLetter, types: ['(cities)'] },
-        (predictions: any) => {
-          dispatch(loadingToggled(false));
-          if (predictions.length) {
-            const previousChoices = getState().game.previousSessions.choices;
-            const city = getRandomCityFromArray(predictions, previousChoices);
-            dispatch(cityChosedByComputer(city));
-            dispatch(nextSessionStarted());
-          } else {
-            dispatch(
-              errorSet(
-                'Кажется, у компьютера закончились варианты. Похоже, что вы победили.',
-              ),
-            );
-          }
-        },
-      );
-    }
+export function cityHaphazardlyChosed(): CityFetchedByComputer {
+  return {
+    type: actionTypes.CITY_FETCHED_BY_COMPUTER,
   };
 }
 
-export function cityFetched(city: string): any {
-  return (dispatch: Dispatch, getState: () => StoreModel) => {
-    dispatch(errorSet(null));
-    dispatch(loadingToggled(true));
-    const service = initializeGoogleMapsPlacesService('g-map');
-    const searchParams = getOptionsForGoogleMapService(city, {
-      types: '(cities)',
-      language: 'ru',
-    });
-    service.textSearch(searchParams, (predictions: any[]) => {
-      dispatch(loadingToggled(false));
-
-      if (predictions.length) {
-        const previousChoices = getState().game.previousSessions.choices;
-        const isCityAlreadyChosed = !!previousChoices.find(
-          (choice: Choice) => choice.city.toLowerCase() === city.toLowerCase(),
-        );
-
-        if (!isCityAlreadyChosed) {
-          dispatch(cityChosedByUser(city));
-          dispatch(nextSessionStarted());
-          dispatch(cityHaphazardlyChosed());
-        } else {
-          dispatch(errorSet('Этот город уже был. Выберите другой'));
-        }
-      } else {
-        dispatch(
-          errorSet('Похоже такого города не существует, выберите другой'),
-        );
-      }
-    });
+export function cityFetched(city: string): CityFetched {
+  return {
+    type: actionTypes.CITY_FETCHED,
+    payload: city,
   };
 }
-
-type Dispatch = (
-  action: GameActions | HelpersActions | ThunkAction | Promise<GameActions>,
-) => any;
-type ThunkAction = (
-  dispatch: Dispatch,
-  getState: () => StoreModel,
-) => AxiosPromise;

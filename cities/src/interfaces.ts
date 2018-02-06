@@ -11,3 +11,14 @@ export interface Choice {
   city: string;
   chosedByUser: boolean;
 }
+
+export interface ReduxAction {
+  type: string;
+  payload?: any;
+}
+
+export interface GooglePrediction {
+  structured_formatting: {
+    main_text: string;
+  };
+}

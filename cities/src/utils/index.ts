@@ -1,4 +1,4 @@
-import { Choice, PreviousSessions } from '../interfaces';
+import { Choice, PreviousSessions, GooglePrediction } from '../interfaces';
 
 declare const google: any;
 
@@ -34,7 +34,7 @@ export const getOptionsForGoogleMapService = (
 };
 
 export const getRandomCityFromArray = (
-  cityArr: any[],
+  cityArr: GooglePrediction[],
   prevChoices: Choice[],
 ): string => {
   const randomIndex = Math.floor(Math.random() * cityArr.length);

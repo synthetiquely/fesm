@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
-module.exports = env => {
+module.exports = (env) => {
   return {
     devtool: 'source-map',
     entry: ['index.tsx'],

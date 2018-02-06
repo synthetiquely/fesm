@@ -18,8 +18,10 @@
     "@types/react": "^16.0.35",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
+    "@types/redux-saga": "^0.10.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
@@ -50,6 +52,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
+    "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "ymaps": "^0.1.1"
   }

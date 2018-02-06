@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reduxThunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
+import rootSaga from './sagas';
 import { StateModel } from './stateModel';
 import { initialState as initialGameState } from './reducers/game';
 import {
@@ -14,13 +15,15 @@ export interface StoreModel {
   helpers: HelpersModel;
 }
 
+const sagaMiddleware = createSagaMiddleware();
 const store: Store<StoreModel> = createStore(
   rootReducer,
   {
     game: initialGameState,
     helpers: initialHelpersState,
   },
-  composeWithDevTools(applyMiddleware(reduxThunk)),
+  composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
+sagaMiddleware.run(rootSaga);
 
 export default store;
