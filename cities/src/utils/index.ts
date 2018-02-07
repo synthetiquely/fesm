@@ -1,4 +1,9 @@
-import { Choice, PreviousSessions, GooglePrediction } from '../interfaces';
+import {
+  Choice,
+  PreviousSessions,
+  GooglePrediction,
+  YGeoObjectCollection,
+} from '../interfaces';
 
 declare const google: any;
 
@@ -8,6 +13,12 @@ export const initializeGoogleMapsPlacesService = (rootId: string) => {
 
 export const initializeGoogleMapsAutocompleteService = () => {
   return new google.maps.places.AutocompleteService();
+};
+
+export const extractGeocode = (geoObjectCollection: YGeoObjectCollection) => {
+  return geoObjectCollection.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
+    .split(' ')
+    .reverse();
 };
 
 export const extractLastLetter = (city: string): string => {

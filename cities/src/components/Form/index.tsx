@@ -23,6 +23,7 @@ export interface State {
 
 interface Form {
   recognition: any;
+  isMobile: boolean;
 }
 
 class Form extends React.PureComponent<Props, State> {
@@ -38,6 +39,9 @@ class Form extends React.PureComponent<Props, State> {
     if (hashVoiceSupport) {
       this.recognition = recognition;
     }
+    this.isMobile =
+      'ontouchstart' in document.documentElement &&
+      /Mobi/i.test(navigator.userAgent);
   }
 
   componentDidMount() {
@@ -125,15 +129,18 @@ class Form extends React.PureComponent<Props, State> {
     const { city, error, isSpeaking, hashVoiceSupport } = this.state;
     const { gameInProgress, isLoading } = this.props;
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="form">
         <div className="field has-addons has-addons-right">
-          <div className="control is-large">
+          <div
+            className={classnames('control', { 'is-large': !this.isMobile })}
+          >
             <button
               type="button"
               onClick={this.onStartSpeaking}
-              className={classnames('button is-large', {
+              className={classnames('button', {
                 'is-success': isSpeaking,
                 'is-default': !isSpeaking,
+                'is-large': !this.isMobile,
               })}
               disabled={!hashVoiceSupport}
               title="Нажмите, чтобы ввести название голосом"
@@ -144,7 +151,10 @@ class Form extends React.PureComponent<Props, State> {
           <div className="control has-icons-left has-icons-right">
             <input
               type="text"
-              className={classnames('input is-large', { 'is-danger': !!error })}
+              className={classnames('input', {
+                'is-danger': !!error,
+                'is-large': !this.isMobile,
+              })}
               placeholder="Введите город"
               autoFocus
               autoComplete="off"
@@ -168,15 +178,18 @@ class Form extends React.PureComponent<Props, State> {
                 </span>
               )}
           </div>
-          <div className="control is-large">
+          <div
+            className={classnames('control', { 'is-large': !this.isMobile })}
+          >
             <button
-              className={classnames('button is-primary is-large', {
+              className={classnames('button is-primary', {
                 'is-loading': isLoading,
+                'is-large': !this.isMobile,
               })}
               disabled={!gameInProgress}
               type="submit"
             >
-              Отправить
+              Готово
             </button>
           </div>
         </div>

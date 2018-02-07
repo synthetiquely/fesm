@@ -1,6 +1,11 @@
 export interface YMapPlacemarkOptions {
-  hintContent: string;
-  ballonContent: string;
+  hintContent?: string;
+  ballonContent?: string;
+}
+
+export interface YMapsPlacemarkVisualizationOptions {
+  preset?: string;
+  iconColor?: string;
 }
 
 export interface PreviousSessions {
@@ -20,5 +25,18 @@ export interface ReduxAction {
 export interface GooglePrediction {
   structured_formatting: {
     main_text: string;
+  };
+  types: string[];
+}
+
+export interface YGeoObjectCollection {
+  GeoObjectCollection: {
+    featureMember: {
+      GeoObject: {
+        Point: {
+          pos: string;
+        };
+      };
+    }[];
   };
 }

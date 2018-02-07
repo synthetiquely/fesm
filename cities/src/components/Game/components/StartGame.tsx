@@ -6,15 +6,21 @@ export interface Props {
 }
 
 const StartGame = (props: Props) => (
-  <div className="columns is-centered">
+  <div className="columns is-mobile is-centered">
     <div className="column is-narrow">
       {!props.gameInProgress && (
-        <button onClick={props.onToggleGame} className="button is-success is-large">
+        <button
+          onClick={props.onToggleGame}
+          className="button is-success is-large"
+        >
           Начать игру
         </button>
       )}
       {props.gameInProgress && (
-        <button onClick={props.onToggleGame} className="button is-danger is-large">
+        <button
+          onClick={props.onToggleGame}
+          className="button is-danger is-large"
+        >
           Завершить игру
         </button>
       )}

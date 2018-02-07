@@ -4,6 +4,7 @@ import Map from '../../Map';
 import Results from '../../Results';
 import StartGame from './StartGame';
 import CurrentSession from './CurrentSession';
+import { PreviousSessions } from '../../../interfaces';
 
 interface Props {
   apiError: any;
@@ -12,12 +13,7 @@ interface Props {
   currentLetter: string;
   currentCity: string;
   currentPlayer: string;
-  previousSessions: {
-    choices: {
-      city: string;
-      chosedByUser: boolean;
-    }[];
-  };
+  previousSessions: PreviousSessions;
   handleStartGame: () => void;
   handleFinishGame: () => void;
   handleSubmitForm: (city: string) => void;
@@ -55,7 +51,7 @@ class Game extends React.PureComponent<Props, State> {
           onToggleGame={this.onToggleGame}
         />
         {gameInProgress && (
-          <div className="columns is-centered">
+          <div className="columns is-mobile is-centered">
             <div className="column is-narrow">
               <CurrentSession
                 currentCity={currentCity}
@@ -66,7 +62,7 @@ class Game extends React.PureComponent<Props, State> {
           </div>
         )}
         {gameInProgress && (
-          <div className="columns is-centered">
+          <div className="columns is-mobile is-centered">
             <div className="column is-narrow">
               <Form
                 currentLetter={currentLetter}
@@ -80,10 +76,10 @@ class Game extends React.PureComponent<Props, State> {
         )}
         {gameInProgress && (
           <div className="columns is-centered">
-            <div className="column is-narrow">
-              <Map />
+            <div className="column">
+              <Map choices={previousSessions.choices} />
             </div>
-            <div className="column is-narrow">
+            <div className="column">
               <h3 className="title">Ходы</h3>
               <Results previousSessions={previousSessions} />
             </div>
