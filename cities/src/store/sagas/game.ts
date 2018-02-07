@@ -74,7 +74,7 @@ function* callCityFetchedByComputer(action: ReduxAction) {
 
       if (response.length) {
         const previousChoices = yield select(selectors.previousChoices);
-        const city = getRandomCityFromArray(response, previousChoices);
+        const city = getRandomCityFromArray(response, previousChoices, 0);
         yield put({
           type: actionTypes.CITY_CHOSED_BY_COMPUTER,
           payload: city,
@@ -92,7 +92,10 @@ function* callCityFetchedByComputer(action: ReduxAction) {
       yield put({ type: actionTypes.LOADING_TOGGLED, payload: false });
       yield put({
         type: actionTypes.ERROR_SET,
-        payload: error,
+        payload: error.message,
+      });
+      yield put({
+        type: actionTypes.GAME_FINISHED,
       });
     }
   }

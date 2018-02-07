@@ -92,14 +92,16 @@ class Map extends React.PureComponent<Props, State> {
     styleOptions?: YMapsPlacemarkVisualizationOptions,
   ) => {
     try {
-      const coords = await this.getGeocode(city);
-      if (coords) {
-        const placemark = new this.maps.Placemark(
-          coords,
-          options,
-          styleOptions,
-        );
-        await this.state.map.geoObjects.add(placemark);
+      if (this.maps) {
+        const coords = await this.getGeocode(city);
+        if (coords) {
+          const placemark = new this.maps.Placemark(
+            coords,
+            options,
+            styleOptions,
+          );
+          await this.state.map.geoObjects.add(placemark);
+        }
       }
     } catch (error) {
       console.log('Error while trying to place a mark for', city, error);

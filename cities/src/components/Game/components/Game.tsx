@@ -4,6 +4,7 @@ import Map from '../../Map';
 import Results from '../../Results';
 import StartGame from './StartGame';
 import CurrentSession from './CurrentSession';
+import Alert from '../../Common/Alert';
 import { PreviousSessions } from '../../../interfaces';
 
 interface Props {
@@ -46,6 +47,13 @@ class Game extends React.PureComponent<Props, State> {
     } = this.props;
     return (
       <div>
+        {apiError && (
+          <div className="columns">
+            <div className="column">
+              <Alert type="error" text={apiError} />
+            </div>
+          </div>
+        )}
         <StartGame
           gameInProgress={gameInProgress}
           onToggleGame={this.onToggleGame}

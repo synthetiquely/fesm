@@ -1,7 +1,10 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { validateCityName } from '../../utils/validate';
-import { initializeSpeechRecognition, SpeechEvent } from '../../utils/speechRecognition';
+import {
+  initializeSpeechRecognition,
+  SpeechEvent,
+} from '../../utils/speechRecognition';
 
 export interface Props {
   currentLetter: string;
@@ -36,7 +39,9 @@ class Form extends React.PureComponent<Props, State> {
     if (hashVoiceSupport) {
       this.recognition = recognition;
     }
-    this.isMobile = 'ontouchstart' in document.documentElement && /Mobi/i.test(navigator.userAgent);
+    this.isMobile =
+      'ontouchstart' in document.documentElement &&
+      /Mobi/i.test(navigator.userAgent);
   }
 
   componentDidMount() {
@@ -69,7 +74,7 @@ class Form extends React.PureComponent<Props, State> {
   }
 
   validate = (value: string) => {
-    if (validateCityName(value.trim())) {
+    if (validateCityName(value)) {
       if (this.props.currentLetter) {
         if (this.props.currentLetter === value[0].toLowerCase()) {
           return true;
@@ -87,7 +92,7 @@ class Form extends React.PureComponent<Props, State> {
       error: null,
     });
     if (this.validate(this.state.city)) {
-      this.props.handleSubmitForm(this.state.city.trim());
+      this.props.handleSubmitForm(this.state.city);
       this.setState({
         city: '',
       });
@@ -133,7 +138,9 @@ class Form extends React.PureComponent<Props, State> {
     return (
       <form onSubmit={this.onSubmit} className="form">
         <div className="field has-addons has-addons-right">
-          <div className={classnames('control', { 'is-large': !this.isMobile })}>
+          <div
+            className={classnames('control', { 'is-large': !this.isMobile })}
+          >
             <button
               type="button"
               onClick={this.onStartSpeaking}
@@ -178,7 +185,9 @@ class Form extends React.PureComponent<Props, State> {
                 </span>
               )}
           </div>
-          <div className={classnames('control', { 'is-large': !this.isMobile })}>
+          <div
+            className={classnames('control', { 'is-large': !this.isMobile })}
+          >
             <button
               className={classnames('button is-primary', {
                 'is-loading': isLoading,

@@ -47,15 +47,24 @@ export const getOptionsForGoogleMapService = (
 export const getRandomCityFromArray = (
   cityArr: GooglePrediction[],
   prevChoices: Choice[],
+  step: number,
 ): string => {
-  const randomIndex = Math.floor(Math.random() * cityArr.length);
+  let counter = step;
+  const randomIndex = Math.floor(Math.random() * (cityArr.length - 1));
   const selectedCity = cityArr[randomIndex].structured_formatting.main_text;
   const isCityAlreadyChosed = !!prevChoices.find(
     (choice: Choice) =>
       choice.city.toLowerCase() === selectedCity.toLowerCase(),
   );
   if (isCityAlreadyChosed) {
-    return getRandomCityFromArray(cityArr, prevChoices);
+    counter += 1;
+    if (counter >= 1000) {
+      throw new Error(
+        'У компьютера закончились варианты, похоже, что вы победили.',
+      );
+    } else {
+      return getRandomCityFromArray(cityArr, prevChoices, counter);
+    }
   }
   return selectedCity;
 };
