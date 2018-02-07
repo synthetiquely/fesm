@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { validateCityName } from '../../utils/validate';
+import {
+  initializeSpeechRecognition,
+  SpeechEvent,
+} from '../../utils/speechRecognition';
 
 export interface Props {
   currentLetter: string;
@@ -13,15 +17,41 @@ export interface Props {
 export interface State {
   city: string;
   error: any;
+  hashVoiceSupport: boolean;
+  isSpeaking: boolean;
+}
+
+interface Form {
+  recognition: any;
 }
 
 class Form extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
+    const { hashVoiceSupport, recognition } = initializeSpeechRecognition();
     this.state = {
+      hashVoiceSupport,
+      isSpeaking: false,
       city: '',
       error: null,
     };
+    if (hashVoiceSupport) {
+      this.recognition = recognition;
+    }
+  }
+
+  componentDidMount() {
+    if (this.state.hashVoiceSupport) {
+      this.recognition.onresult = (event: SpeechEvent) => {
+        const transcript = Array.from(event.results)
+          .map((result: any) => result[0])
+          .map((result: any) => result.transcript)
+          .join('');
+        this.setState({
+          city: transcript,
+        });
+      };
+    }
   }
 
   componentWillReceiveProps(nextProps: Props) {
@@ -75,12 +105,42 @@ class Form extends React.PureComponent<Props, State> {
     });
   };
 
+  onStartSpeaking = () => {
+    if (this.state.hashVoiceSupport) {
+      if (!this.state.isSpeaking) {
+        this.recognition.start();
+      } else {
+        this.recognition.stop();
+      }
+      this.setState((prevState: State) => {
+        return {
+          isSpeaking: !prevState.isSpeaking,
+          city: '',
+        };
+      });
+    }
+  };
+
   render() {
-    const { city, error } = this.state;
+    const { city, error, isSpeaking, hashVoiceSupport } = this.state;
     const { gameInProgress, isLoading } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="field has-addons">
+        <div className="field has-addons has-addons-right">
+          <div className="control is-large">
+            <button
+              type="button"
+              onClick={this.onStartSpeaking}
+              className={classnames('button is-large', {
+                'is-success': isSpeaking,
+                'is-default': !isSpeaking,
+              })}
+              disabled={!hashVoiceSupport}
+              title="Нажмите, чтобы ввести название голосом"
+            >
+              <i className="fas fa-microphone" />
+            </button>
+          </div>
           <div className="control has-icons-left has-icons-right">
             <input
               type="text"
