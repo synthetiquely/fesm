@@ -12,7 +12,15 @@ export const searchCityByName = (
   return new Promise((resolve, reject) => {
     service.textSearch(searchParams, (predictions: GooglePrediction[]) => {
       if (predictions.length) {
-        resolve(predictions);
+        const isCity = predictions.find(
+          (prediction: GooglePrediction) =>
+            prediction.types.indexOf('locality') >= 0,
+        );
+        if (isCity) {
+          resolve(predictions);
+        } else {
+          reject('Непохоже что это город, выберите другой');
+        }
       } else {
         reject('Похоже такого города не существует, выберите другой');
       }
