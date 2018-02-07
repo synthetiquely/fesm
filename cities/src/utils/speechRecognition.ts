@@ -9,12 +9,11 @@ export interface SpeechEvent extends Event {
 
 export const initializeSpeechRecognition = () => {
   (<IWindow>window).SpeechRecognition =
-    (<IWindow>window).SpeechRecognition ||
-    (<IWindow>window).webkitSpeechRecognition;
+    (<IWindow>window).SpeechRecognition || (<IWindow>window).webkitSpeechRecognition;
 
   if ((<IWindow>window).SpeechRecognition) {
     const recognition = new (<IWindow>window).SpeechRecognition();
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.interimResults = true;
     recognition.lang = 'ru-RU';
     return {

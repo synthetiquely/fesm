@@ -1,10 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { validateCityName } from '../../utils/validate';
-import {
-  initializeSpeechRecognition,
-  SpeechEvent,
-} from '../../utils/speechRecognition';
+import { initializeSpeechRecognition, SpeechEvent } from '../../utils/speechRecognition';
 
 export interface Props {
   currentLetter: string;
@@ -39,9 +36,7 @@ class Form extends React.PureComponent<Props, State> {
     if (hashVoiceSupport) {
       this.recognition = recognition;
     }
-    this.isMobile =
-      'ontouchstart' in document.documentElement &&
-      /Mobi/i.test(navigator.userAgent);
+    this.isMobile = 'ontouchstart' in document.documentElement && /Mobi/i.test(navigator.userAgent);
   }
 
   componentDidMount() {
@@ -54,6 +49,13 @@ class Form extends React.PureComponent<Props, State> {
         this.setState({
           city: transcript,
         });
+        const isFinal = event.results[0].isFinal;
+        if (isFinal) {
+          this.recognition.stop();
+          this.setState({
+            isSpeaking: false,
+          });
+        }
       };
     }
   }
@@ -131,9 +133,7 @@ class Form extends React.PureComponent<Props, State> {
     return (
       <form onSubmit={this.onSubmit} className="form">
         <div className="field has-addons has-addons-right">
-          <div
-            className={classnames('control', { 'is-large': !this.isMobile })}
-          >
+          <div className={classnames('control', { 'is-large': !this.isMobile })}>
             <button
               type="button"
               onClick={this.onStartSpeaking}
@@ -178,9 +178,7 @@ class Form extends React.PureComponent<Props, State> {
                 </span>
               )}
           </div>
-          <div
-            className={classnames('control', { 'is-large': !this.isMobile })}
-          >
+          <div className={classnames('control', { 'is-large': !this.isMobile })}>
             <button
               className={classnames('button is-primary', {
                 'is-loading': isLoading,
